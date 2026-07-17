@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Rooftop HVAC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #2c5aa0;
+            --primary-light: #3d6dbd;
+            --accent: #f4b860;
+            --dark: #1a1a1a;
+            --light: #f8f9fa;
+            --text: #333;
+            --border: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--light);
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 0.4rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-light);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+        }
+
+        /* ── PAGE HEADER ── */
+        .page-header {
+            margin-top: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* ── BLOG CONTAINER ── */
+        .blog-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 2px solid var(--border);
+            color: var(--text);
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* ── BLOG GRID ── */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(44,90,160,0.2);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background: var(--light);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+
+        .image-count {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(44,90,160,0.9);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        .blog-category {
+            background: var(--accent);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .blog-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+
+        .blog-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .blog-location {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ── MODAL ── */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            width: 100%;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 10;
+        }
+
+        .modal-header {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            background: var(--light);
+        }
+
+        .modal-images {
+            display: flex;
+            height: 100%;
+            transition: transform 0.3s;
+        }
+
+        .modal-image-slide {
+            width: 100%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-image-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-nav {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 5;
+        }
+
+        .image-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .image-dot.active {
+            background: white;
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        .arrow-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(44,90,160,0.8);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            z-index: 6;
+            transition: background 0.3s;
+        }
+
+        .arrow-button:hover {
+            background: var(--primary);
+        }
+
+        .arrow-button.prev {
+            left: 1rem;
+        }
+
+        .arrow-button.next {
+            right: 1rem;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-body h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .modal-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+
+        .modal-meta strong {
+            color: var(--primary);
+        }
+
+        .modal-body p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            nav {
+                padding: 0.75rem 1rem;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .btn-primary {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .page-header {
+                padding: 2rem 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .page-header p {
+                font-size: 0.95rem;
+            }
+
+            .blog-container {
+                padding: 1.5rem;
+            }
+
+            .filter-buttons {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.75rem;
+                margin-bottom: 2rem;
+            }
+
+            .filter-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+                min-height: 40px;
+            }
+
+            .blog-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+
+            .blog-card {
+                min-height: 180px;
+            }
+
+            .modal-header {
+                height: 200px;
+            }
+
+            .modal-body {
+                padding: 1.5rem;
+            }
+
+            .modal-content {
+                max-width: 95%;
+                max-height: 80vh;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 0.6rem 0.8rem;
+            }
+
+            .logo-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 0.8rem;
+            }
+
+            nav a.btn-primary {
+                display: none;
+            }
+
+            .page-header {
+                padding: 1.5rem 0.8rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.3rem;
+            }
+
+            .blog-container {
+                padding: 1rem;
+            }
+
+            .filter-buttons {
+                margin-bottom: 1.5rem;
+            }
+
+            .filter-btn {
+                padding: 0.5rem 0.9rem;
+                font-size: 0.85rem;
+                min-height: 38px;
+            }
+
+            .blog-grid {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                gap: 0.8rem;
+            }
+
+            .blog-card {
+                min-height: 160px;
+            }
+
+            .blog-card-image {
+                height: 100px;
+            }
+
+            .blog-card-info {
+                padding: 0.8rem;
+            }
+
+            .blog-card-info h3 {
+                font-size: 0.9rem;
+            }
+
+            .modal-header {
+                height: 150px;
+            }
+
+            .modal-header img {
+                object-fit: cover;
+            }
+
+            .modal-body {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .modal-content {
+                max-height: 90vh;
+            }
+
+            .modal-close {
+                width: 36px;
+                height: 36px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAV -->
+    <nav>
+        <a href="index.html" class="logo" style="background: white; padding: 2px 4px; border-radius: 12px; border: 2px solid var(--primary);">
+            <div class="logo-icon" style="background: white; border-radius: 8px; color: var(--primary);">🏢</div>
+            Rooftop HVAC
+        </a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <a href="index.html#contact" class="btn-primary">Get Quote</a>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <h1>Our Projects & Blog</h1>
+        <p>See our recent HVAC installations, repairs, and service work</p>
+        <p style="margin-top: 1.5rem;"><a href="https://instagram.com/Rooftop_Hvac" target="_blank" style="color: white; text-decoration: none; border-bottom: 2px solid white; padding-bottom: 5px; font-weight: 600;">Follow @Rooftop_Hvac on Instagram →</a></p>
+    </section>
+
+    <!-- BLOG SECTION -->
+    <div class="blog-container">
+        <div class="filter-buttons" id="filterButtons"></div>
+        <div class="blog-grid" id="blogGrid"></div>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <div class="modal-images" id="modalImages"></div>
+                <button class="arrow-button prev" onclick="prevImage()">&lt;</button>
+                <button class="arrow-button next" onclick="nextImage()">&gt;</button>
+                <div class="image-nav" id="imageDots"></div>
+            </div>
+            <div class="modal-body">
+                <h2 id="modalTitle"></h2>
+                <div class="modal-meta">
+                    <div><strong>Date:</strong> <span id="modalDate"></span></div>
+                    <div><strong>Location:</strong> <span id="modalLocation"></span></div>
+                    <div><strong>Category:</strong> <span id="modalCategory"></span></div>
+                </div>
+                <p id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Rooftop HVAC. All rights reserved.</p>
+        <p>Professional HVAC Services | Medford, NJ</p>
+        <p style="margin-top: 1.5rem; font-size: 0.95rem;">Follow us on Instagram: <strong><a href="https://instagram.com/Rooftop_Hvac" target="_blank" style="color: white; text-decoration: none; border-bottom: 1px solid white;">@Rooftop_Hvac</a></strong></p>
+    </footer>
+
+    <script src="blog-data.js"></script>
+    <script>
+        let currentPost = null;
+        let currentImageIndex = 0;
+        const allCategories = new Set();
+
+        function initializeCategories() {
+            blogPosts.forEach(post => allCategories.add(post.category));
+            const filterContainer = document.getElementById('filterButtons');
+
+            const allBtn = document.createElement('button');
+            allBtn.className = 'filter-btn active';
+            allBtn.textContent = 'All Projects';
+            allBtn.onclick = () => filterPosts('All Projects');
+            filterContainer.appendChild(allBtn);
+
+            allCategories.forEach(category => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn';
+                btn.textContent = category;
+                btn.onclick = () => filterPosts(category);
+                filterContainer.appendChild(btn);
+            });
+        }
+
+        function filterPosts(category) {
+            const filtered = category === 'All Projects'
+                ? blogPosts
+                : blogPosts.filter(p => p.category === category);
+
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent === category || (category === 'All Projects' && btn.textContent === 'All Projects')) {
+                    btn.classList.add('active');
+                }
+            });
+
+            renderBlogPosts(filtered);
+        }
+
+        function renderBlogPosts(posts) {
+            const grid = document.getElementById('blogGrid');
+            grid.innerHTML = '';
+
+            posts.forEach(post => {
+                const card = document.createElement('div');
+                card.className = 'blog-card';
+                card.onclick = () => openModal(post);
+
+                card.innerHTML = `
+                    <div class="blog-image">
+                        <img src="${post.thumbnail}" alt="${post.title}" loading="lazy">
+                        <div class="image-count">${post.images.length} photos</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>${post.date}</span>
+                            <span class="blog-category">${post.category}</span>
+                        </div>
+                        <h3>${post.title}</h3>
+                        <p>${post.description}</p>
+                        <div class="blog-location">📍 ${post.location}</div>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+
+        function openModal(post) {
+            currentPost = post;
+            currentImageIndex = 0;
+
+            const modal = document.getElementById('modal');
+            document.getElementById('modalTitle').textContent = post.title;
+            document.getElementById('modalDate').textContent = post.date;
+            document.getElementById('modalLocation').textContent = post.location;
+            document.getElementById('modalCategory').textContent = post.category;
+            document.getElementById('modalDescription').textContent = post.description;
+
+            renderModalImages();
+            modal.classList.add('active');
+        }
+
+        function renderModalImages() {
+            const imagesContainer = document.getElementById('modalImages');
+            const dotsContainer = document.getElementById('imageDots');
+
+            imagesContainer.innerHTML = '';
+            dotsContainer.innerHTML = '';
+
+            currentPost.images.forEach((img, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'modal-image-slide';
+                slide.innerHTML = `<img src="${img}" alt="Image ${index + 1}">`;
+                imagesContainer.appendChild(slide);
+
+                const dot = document.createElement('div');
+                dot.className = `image-dot ${index === currentImageIndex ? 'active' : ''}`;
+                dot.onclick = () => goToImage(index);
+                dotsContainer.appendChild(dot);
+            });
+
+            updateImagePosition();
+        }
+
+        function updateImagePosition() {
+            const imagesContainer = document.getElementById('modalImages');
+            imagesContainer.style.transform = `translateX(-${currentImageIndex * 100}%)`;
+
+            document.querySelectorAll('.image-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentImageIndex);
+            });
+        }
+
+        function nextImage() {
+            if (currentPost) {
+                currentImageIndex = (currentImageIndex + 1) % currentPost.images.length;
+                updateImagePosition();
+            }
+        }
+
+        function prevImage() {
+            if (currentPost) {
+                currentImageIndex = (currentImageIndex - 1 + currentPost.images.length) % currentPost.images.length;
+                updateImagePosition();
+            }
+        }
+
+        function goToImage(index) {
+            currentImageIndex = index;
+            updateImagePosition();
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeCategories();
+            renderBlogPosts(blogPosts);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,2016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooftop HVAC - Professional HVAC Services in New Jersey</title>
+
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Rooftop HVAC">
+    <meta property="og:description" content="Professional HVAC Services in New Jersey | 24/7 Emergency Support | Expert Installation & Repair">
+    <meta property="og:image" content="./assets/logo.png">
+    <meta property="og:url" content="https://rooftophvac.vercel.app">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Rooftop HVAC">
+    <meta name="twitter:description" content="Professional HVAC Services in New Jersey | 24/7 Emergency Support">
+    <meta name="twitter:image" content="./assets/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #2c5aa0;
+            --primary-light: #3d6dbd;
+            --accent: #f4b860;
+            --dark: #1a1a1a;
+            --light: #f8f9fa;
+            --text: #333;
+            --border: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 0.4rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            transition: transform 0.3s;
+            background: white;
+            padding: 6px 10px;
+            border-radius: 12px;
+            border: 2px solid var(--primary);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(44,90,160,0.2);
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-light);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--primary);
+            padding: 0.25rem 0.5rem;
+            z-index: 1001;
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: bold;
+        }
+
+        .mobile-brand {
+            display: none;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            right: 0;
+            background: white;
+            width: 250px;
+            box-shadow: -2px 4px 15px rgba(0,0,0,0.1);
+            z-index: 1000;
+            border-radius: 0 0 0 12px;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            background: var(--light);
+            color: var(--primary);
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        /* ── ELECTRICITY DIVIDER ── */
+        .electricity-divider {
+            background: linear-gradient(90deg, #0a1a2e 0%, #16213e 50%, #0a1a2e 100%);
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .electricity-divider svg {
+            width: 100%;
+            height: 120px;
+            display: block;
+        }
+
+        .electricity-line {
+            stroke: #00ffff;
+            stroke-width: 2;
+            filter: drop-shadow(0 0 8px #00ffff);
+            stroke-linecap: round;
+        }
+
+        .electricity-glow {
+            stroke: #0088ff;
+            stroke-width: 4;
+            filter: drop-shadow(0 0 15px #0088ff);
+            opacity: 0.4;
+            stroke-linecap: round;
+        }
+
+        @keyframes electricityFlash {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .electricity-flash {
+            animation: electricityFlash 2s ease-in-out infinite;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(44,90,160,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            box-shadow: 0 8px 25px rgba(44,90,160,0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            margin-top: 70px;
+            min-height: auto;
+            background: linear-gradient(135deg, #2c5aa0 0%, #3d6dbd 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 1.5rem 2rem;
+            gap: 0.7rem;
+        }
+
+        /* Energy background container - only above logo */
+        .hero-energy-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 450px;
+            background: url('./assets/energy-bg.png') center/cover;
+            background-attachment: fixed;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes heroGradient {
+            0%, 100% { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, #1e4d8b 100%); }
+            50% { background: linear-gradient(135deg, #1e4d8b 0%, var(--primary) 50%, var(--primary-light) 100%); }
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -150px;
+            right: -150px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(244,184,96,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -100px;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-30px) translateX(20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero-logo {
+            width: 160px;
+            height: 160px;
+            margin: 1.5rem auto 1.5rem;
+            order: 5;
+        }
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 50px rgba(244,184,96,0.5);
+            animation: logoFloat 4s ease-in-out infinite;
+            border: 3px solid var(--primary);
+            position: relative;
+        }
+
+
+        @keyframes hvacPulse {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(244,184,96,0.3);
+                transform: translateY(-50%) scale(1);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(244,184,96,0.6);
+                transform: translateY(-50%) scale(1.05);
+            }
+        }
+
+        /* CYBERPUNK ANIMATIONS */
+        @keyframes circuitFlow {
+            0% { stroke-dasharray: 1000; stroke-dashoffset: 1000; }
+            100% { stroke-dasharray: 1000; stroke-dashoffset: 0; }
+        }
+
+        @keyframes nodePulse {
+            0%, 100% { r: 4px; fill: #00ff88; filter: drop-shadow(0 0 8px #00ff88); }
+            50% { r: 6px; fill: #00ff88; filter: drop-shadow(0 0 20px #00ff88); }
+        }
+
+        @keyframes dataFlowPath {
+            0% { offset-distance: 0%; }
+            100% { offset-distance: 100%; }
+        }
+
+        @keyframes dataFlow {
+            0% { opacity: 0; transform: translate(-20px, 0); }
+            100% { opacity: 1; transform: translate(150px, 120px); }
+        }
+
+        @keyframes techVentGlow {
+            0%, 100% { stroke: #0088ff; filter: drop-shadow(0 0 4px #0088ff); }
+            50% { stroke: #00ff88; filter: drop-shadow(0 0 12px #00ff88); }
+        }
+
+        @keyframes coreRadiate {
+            0%, 100% { r: 8px; stroke-width: 2.5; filter: drop-shadow(0 0 8px #0088ff); }
+            50% { r: 10px; stroke-width: 3; filter: drop-shadow(0 0 20px #0088ff); }
+        }
+
+        @keyframes coreInnerBeat {
+            0%, 100% { r: 4px; fill: #0088ff; filter: drop-shadow(0 0 6px #0088ff); }
+            50% { r: 5.5px; fill: #00ff88; filter: drop-shadow(0 0 16px #00ff88); }
+        }
+
+        @keyframes energyRadiate {
+            0% { r: 12px; opacity: 0.6; stroke: #f4b860; }
+            100% { r: 28px; opacity: 0; stroke: #0088ff; }
+        }
+
+        @keyframes hvacOutlineGlow {
+            0%, 100% { stroke-width: 3; filter: drop-shadow(0 0 10px rgba(0,136,255,0.6)); }
+            50% { stroke-width: 4; filter: drop-shadow(0 0 25px rgba(0,255,136,0.8)); }
+        }
+
+        .circuit-path {
+            stroke-dasharray: 300;
+            animation: circuitFlow 3s ease-in-out infinite;
+        }
+
+        .node-pulse {
+            animation: nodePulse 2s ease-in-out infinite;
+        }
+
+        .data-flow {
+            animation: dataFlow 2.5s ease-in-out infinite;
+            fill: #00ff88;
+        }
+
+        .tech-vent {
+            animation: techVentGlow 1.5s ease-in-out infinite;
+        }
+
+        .core-indicator {
+            animation: coreRadiate 2s ease-in-out infinite;
+        }
+
+        .core-inner {
+            animation: coreInnerBeat 2s ease-in-out infinite;
+        }
+
+        .energy-wave {
+            animation: energyRadiate 2s ease-in-out infinite;
+        }
+
+        .hvac-outline {
+            animation: hvacOutlineGlow 2s ease-in-out infinite;
+        }
+
+        .connection-wire {
+            animation: circuitFlow 3.5s ease-in-out infinite 0.5s;
+        }
+
+        /* ELECTRICAL ENERGY ARC */
+        @keyframes energyArcFlow {
+            0%, 100% { stroke-dasharray: 2000; stroke-dashoffset: 2000; }
+            50% { stroke-dasharray: 2000; stroke-dashoffset: 0; }
+        }
+
+        @keyframes arcConnectorPulse {
+            0%, 100% { r: 6px; fill: #ff4444; filter: drop-shadow(0 0 12px #ff4444); }
+            50% { r: 10px; fill: #ff4444; filter: drop-shadow(0 0 30px #ff4444); }
+        }
+
+        @keyframes energyParticleFlow {
+            0% { opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .energy-arc-1 {
+            stroke-dasharray: 2000;
+            animation: energyArcFlow 3s ease-in-out infinite;
+        }
+
+        .energy-arc-2 {
+            stroke-dasharray: 2000;
+            animation: energyArcFlow 3.5s ease-in-out infinite 0.5s;
+        }
+
+        .energy-arc-3 {
+            stroke-dasharray: 2000;
+            animation: energyArcFlow 4s ease-in-out infinite 1s;
+        }
+
+        .arc-connector-left,
+        .arc-connector-right {
+            animation: arcConnectorPulse 1.5s ease-in-out infinite;
+        }
+
+        .energy-particle {
+            animation: energyParticleFlow 2.5s ease-in-out infinite linear;
+        }
+
+
+
+        .logo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 10px;
+        }
+
+        .logo-sphere {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-sphere::before,
+        .logo-sphere::after {
+            content: '';
+            position: absolute;
+            background: var(--primary-light);
+        }
+
+        .logo-sphere::before {
+            width: 50px;
+            height: 6px;
+            left: 50%;
+            top: 35%;
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+
+        .logo-sphere::after {
+            width: 50px;
+            height: 6px;
+            left: 50%;
+            top: 55%;
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            animation: slideInDown 0.8s ease-out;
+            letter-spacing: 0px;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+            line-height: 1.8;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            padding: 0.9rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* ── SERVICES ── */
+        .services {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 2px solid var(--primary);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(244,184,96,0.1), transparent);
+            transition: left 0.5s;
+            pointer-events: none;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(44,90,160,0.2);
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .details-toggle {
+            display: none;
+            padding: 1rem;
+            background: rgba(44,90,160,0.05);
+            border-radius: 8px;
+            margin-top: 1rem;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .details-toggle.show {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn-small {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            margin-top: 1rem;
+            font-family: inherit;
+        }
+
+        .btn-small:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        /* ── CAROUSEL ── */
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+            background: var(--light);
+            height: 300px;
+        }
+
+        .carousel-track {
+            display: flex;
+            animation: scroll 180s linear infinite;
+        }
+
+        .carousel-slide {
+            min-width: 380px;
+            height: 320px;
+            margin: 0 12px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            flex-shrink: 0;
+            border: 3px solid var(--primary);
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-380px * 11 - 12px * 22));
+            }
+        }
+
+        .carousel-container:hover .carousel-track {
+            animation-play-state: paused;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: iconBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes iconBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* ── PORTFOLIO ── */
+        .portfolio {
+            padding: 5rem 2rem;
+            background: var(--light);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 1;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(44,90,160,0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-text {
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .portfolio-text h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ── CONTACT ── */
+        .contact {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, #1e4d8b 100%);
+        }
+
+        .contact .section-title {
+            color: #ffff00 !important;
+        }
+
+        .contact-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+
+        .contact-image {
+            width: 100%;
+            height: 400px;
+            background: var(--light);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .contact-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .contact-info h2 {
+            color: #ffff00;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .info-item {
+            margin-bottom: 2rem;
+        }
+
+        .info-item strong {
+            color: #ffff00;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .info-item p {
+            color: #ffff00;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            color: #ffff00;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.7rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            transition: all 0.3s;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.4);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(244,184,96,0.5);
+            box-shadow: 0 0 10px rgba(244,184,96,0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Upload Area */
+        .upload-area {
+            border: 2px dashed rgba(244,184,96,0.3);
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: rgba(244,184,96,0.05);
+        }
+
+        .upload-area:hover {
+            border-color: rgba(244,184,96,0.6);
+            background: rgba(244,184,96,0.1);
+        }
+
+        .upload-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .upload-text {
+            color: #ffff00;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+        }
+
+        .upload-subtext {
+            color: #ffff00;
+            font-size: 0.8rem;
+        }
+
+        /* Custom File Upload Button */
+        .file-upload-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #f4b860 0%, #e6a840 100%);
+            color: #000;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.9rem;
+            border: 2px solid #d99020;
+            box-shadow: 0 6px 20px rgba(244,184,96,0.3), inset 0 1px 0 rgba(255,255,255,0.4);
+            transition: all 0.3s ease;
+            width: 100%;
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        .file-upload-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(244,184,96,0.5), inset 0 1px 0 rgba(255,255,255,0.4);
+            border-color: #c4791a;
+            background: linear-gradient(135deg, #ffc670 0%, #f0b850 100%);
+        }
+
+        .file-upload-button:active {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(244,184,96,0.3), inset 0 1px 0 rgba(255,255,255,0.4);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        /* ── MODAL ── */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow: auto;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 10;
+        }
+
+        .modal-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+        .modal-text {
+            padding: 2rem;
+        }
+
+        .modal-text h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .modal-text p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* ── RESPONSIVE ── */
+        /* ── CONTACT SUCCESS MODAL ── */
+        .contact-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .contact-modal.active {
+            display: flex;
+        }
+
+        .contact-modal-content {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%);
+            border-radius: 24px;
+            max-width: 550px;
+            padding: 4rem 3.5rem;
+            position: relative;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.25), 0 0 1px rgba(0,0,0,0.1);
+            border: none;
+            text-align: center;
+            animation: slideUp 0.4s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .contact-modal-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: iconBounce 0.6s ease-out;
+        }
+
+        @keyframes iconBounce {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .contact-modal-content h2 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-modal-content p {
+            color: #555;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 2.5rem;
+            font-weight: 500;
+        }
+
+        .contact-modal-button {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 14px 40px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 25px rgba(44,90,160,0.2);
+        }
+
+        .contact-modal-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(44,90,160,0.35);
+            background: linear-gradient(135deg, var(--primary-light) 0%, #4a7bc6 100%);
+        }
+
+        .contact-modal-button:active {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(44,90,160,0.25);
+        }
+
+        .navbar-electricity-border {
+            display: none;
+            width: 100%;
+            height: 35px;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(0, 200, 255, 0.3) 25%,
+                rgba(0, 255, 255, 0.5) 50%,
+                rgba(0, 200, 255, 0.3) 75%,
+                transparent 100%);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.6),
+                        0 0 40px rgba(0, 200, 255, 0.3);
+            animation: electricityFlash 2s ease-in-out infinite;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 0.75rem 1rem;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .mobile-brand {
+                display: none !important;
+            }
+
+            nav a.btn-primary {
+                display: none;
+            }
+
+            nav .logo {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            nav .logo img {
+                height: 40px !important;
+                width: auto !important;
+            }
+
+
+            .hero-logo img {
+                width: 200px !important;
+                height: auto !important;
+            }
+
+
+            .btn-primary {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .navbar-electricity-border {
+                display: block !important;
+            }
+
+            .hero {
+                margin-top: 55px;
+                min-height: auto;
+                padding: 1.2rem 1rem 2rem 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+                margin: 0 0 0.6rem 0;
+                font-weight: 700;
+            }
+
+            .hero p {
+                font-size: 0.88rem;
+                margin: 0.5rem 0;
+                line-height: 1.4;
+            }
+
+            .hero-buttons {
+                gap: 0.7rem;
+                margin-top: 0.8rem;
+            }
+
+            .hero-buttons a {
+                font-size: 0.9rem;
+                padding: 0.6rem 1rem;
+            }
+
+            .hero-logo img {
+                height: 180px !important;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                padding: 0 1rem;
+            }
+
+            .hero-buttons a {
+                width: 100%;
+                text-align: center;
+                padding: 1rem !important;
+                font-size: 1rem;
+                min-height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .btn-secondary {
+                padding: 0.8rem 1.5rem !important;
+            }
+
+            .carousel-slide {
+                min-width: 280px !important;
+                height: 240px !important;
+            }
+
+            .carousel-slide img {
+                height: 240px !important;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr !important;
+                padding: 0 1rem;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+
+            .navbar-electricity-mobile {
+                display: block !important;
+            }
+
+            .info-item {
+                margin-bottom: 0.8rem !important;
+            }
+
+            .contact-info {
+                margin-bottom: 1.2rem !important;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .faq-container {
+                padding: 0 1rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+
+            .contact-form, .contact-info {
+                padding: 1.5rem 0;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                padding: 0.75rem;
+                font-size: 1rem;
+                min-height: 44px;
+            }
+
+            .contact-form button,
+            .file-upload-button {
+                min-height: 48px;
+                font-size: 1rem;
+                padding: 0.75rem 1.5rem;
+            }
+
+            .file-upload-area {
+                padding: 2rem 1rem;
+                min-height: 150px;
+            }
+
+            .contact-modal-content {
+                max-width: 95%;
+                padding: 2rem 1.5rem;
+            }
+
+            .contact-modal-button {
+                min-height: 48px;
+                padding: 12px 32px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 0.6rem 0.8rem;
+            }
+
+            .logo-icon {
+                width: 35px;
+                height: 35px;
+            }
+
+            .logo-icon img {
+                height: 35px;
+            }
+
+            nav a.btn-primary {
+                display: none;
+            }
+
+            .hero {
+                margin-top: 55px;
+                padding: 0 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .hero-logo {
+                padding: 12px !important;
+            }
+
+            .hero-logo img {
+                height: 150px !important;
+                width: 150px !important;
+            }
+
+            .hero-logo {
+                width: 150px !important;
+                height: auto !important;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .service-card h3 {
+                font-size: 1.1rem;
+            }
+
+            .carousel-container {
+                height: 240px !important;
+                margin: 1.5rem 0 2rem 0 !important;
+                background: #f5f5f5;
+            }
+
+            .carousel-slide {
+                min-width: 200px !important;
+                height: 240px !important;
+                margin: 0 8px !important;
+                background: #f5f5f5;
+            }
+
+            .carousel-slide img {
+                height: 240px !important;
+                width: 100%;
+                display: block;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                padding: 0.65rem;
+                font-size: 16px;
+            }
+
+            .file-upload-area {
+                padding: 1.5rem 0.8rem;
+            }
+
+            .contact-info p {
+                font-size: 0.9rem;
+            }
+
+            .contact-modal-content {
+                padding: 1.5rem 1rem;
+            }
+
+            .contact-modal-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-modal-content p {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAV -->
+    <nav>
+        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="logo" style="display: flex; align-items: center; gap: 12px; text-decoration: none; cursor: pointer; background: white; padding: 2px 4px; border-radius: 12px; border: 2px solid var(--primary);">
+            <img src="./assets/logo.png" alt="Rooftop HVAC" style="height: 50px; width: auto; border-radius: 8px;">
+        </a>
+        <img class="navbar-electricity-mobile" src="./assets/electricity.png" alt="Electricity" style="display: none; height: 40px; flex: 1; object-fit: cover; margin: 0 50px 0 10px;">
+        <ul>
+            <li><a href="#hero" onclick="document.querySelector('.hero').scrollIntoView({behavior: 'smooth'}); return false;">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn-primary">Get Quote</a>
+        <span class="mobile-brand">ROOFTOP HVAC</span>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+    </nav>
+
+    <!-- MOBILE MENU DROPDOWN -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#hero" onclick="document.querySelector('.hero').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu(); return false;">Home</a>
+        <a href="#services" onclick="toggleMobileMenu();">Services</a>
+        <a href="blog.html" onclick="toggleMobileMenu();">Blog</a>
+        <a href="#contact" onclick="toggleMobileMenu();">Contact</a>
+        <a href="#contact" style="background: var(--primary); color: white; font-weight: 700;" onclick="toggleMobileMenu();">Get Quote</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <!-- Energy background image (top area only) -->
+        <div class="hero-energy-bg"></div>
+
+
+
+        <div class="hero-content">
+            <h1>Your HVAC Experts in New Jersey</h1>
+            <p style="font-size: 1.1rem; margin: 1rem 0; font-weight: 500; color: rgba(255,255,255,0.9);">Trusted by Hundreds of Businesses | 24/7 Emergency Service | Expert Installation & Repair</p>
+            <p>Keep your facility comfortable year-round with professional HVAC solutions. From emergency replacements to complete system upgrades, we've got you covered.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Schedule Service</a>
+                <a href="blog.html" class="btn-secondary">View Our Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- RECENT PROJECTS CAROUSEL -->
+    <div class="carousel-container" style="width: 100%; margin: 2rem 0; max-width: none;">
+        <div class="carousel-track">
+            <div class="carousel-slide">
+                <img src="./assets/gym-ductwork-1.jpg" alt="Basketball Gym">
+            </div>
+            <div class="carousel-slide">
+                <img src="./assets/rooftop-equipment-1.jpg" alt="Rooftop Equipment">
+            </div>
+            <div class="carousel-slide">
+                <img src="./assets/york-control-1.jpg" alt="York Control">
+            </div>
+            <div class="carousel-slide">
+                <img src="./assets/lowvoltage-repair-1.jpg" alt="Repair">
+            </div>
+            <div class="carousel-slide">
+                <img src="./assets/medical-office-1.jpg" alt="Medical Office">
+            </div>
+            <div class="carousel-slide">
+                <img src="./assets/condenser-motor-1.jpg" alt="Condenser Motor">
+            </div>
+            <!-- Alternate images for infinite scroll effect -->
+            <div class="carousel-slide">
+                <img src="./assets/gym-ductwork-2.jpg" alt="Basketball Gym">
+            </div>
+            <div class="carousel-slide">
+                <img src="./assets/rooftop-equipment-2.jpg" alt="Rooftop Equipment">
+            </div>
+            <div class="carousel-slide">
+                <img src="./assets/york-control-2.jpg" alt="York Control">
+            </div>
+            <div class="carousel-slide">
+                <img src="./assets/lowvoltage-repair-1.jpg" alt="Repair">
+            </div>
+            <div class="carousel-slide">
+                <img src="./assets/medical-office-2.jpg" alt="Medical Office">
+            </div>
+            <div class="carousel-slide">
+                <img src="./assets/condenser-motor-2.jpg" alt="Condenser Motor">
+            </div>
+        </div>
+    </div>
+
+    <!-- STATS SECTION -->
+    <section style="background: var(--primary); color: white; padding: 3rem 2rem; text-align: center;">
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+            <div style="animation: slideInUp 0.8s ease-out 0.1s backwards;">
+                <div style="font-size: 3rem; font-weight: 800; margin-bottom: 0.5rem;">500+</div>
+                <div style="font-size: 1.1rem; opacity: 0.9;">Satisfied Customers</div>
+            </div>
+            <div style="animation: slideInUp 0.8s ease-out 0.2s backwards;">
+                <div style="font-size: 3rem; font-weight: 800; margin-bottom: 0.5rem;">24/7</div>
+                <div style="font-size: 1.1rem; opacity: 0.9;">Emergency Support</div>
+            </div>
+            <div style="animation: slideInUp 0.8s ease-out 0.3s backwards;">
+                <div style="font-size: 3rem; font-weight: 800; margin-bottom: 0.5rem;">15+ yrs</div>
+                <div style="font-size: 1.1rem; opacity: 0.9;">Industry Experience</div>
+            </div>
+            <div style="animation: slideInUp 0.8s ease-out 0.4s backwards;">
+                <div style="font-size: 3rem; font-weight: 800; margin-bottom: 0.5rem;">100%</div>
+                <div style="font-size: 1.1rem; opacity: 0.9;">Satisfaction Guarantee</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <h2 class="section-title">Our Comprehensive Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>System Installation</h3>
+                <p>Professional installation of new HVAC systems designed for optimal efficiency and comfort. From single units to complex commercial systems, we handle projects of any size with precision and expertise.</p>
+                <button class="btn-small" onclick="toggleDetails(this)">Learn More →</button>
+                <div class="details-toggle">
+                    <p><strong>Professional HVAC Installation:</strong></p>
+                    <p>Whether you're building new or replacing an existing system, our expert technicians ensure your installation is done right the first time. We specialize in:</p>
+                    <ul style="margin: 1rem 0 1rem 1.5rem; color: #666;">
+                        <li>Residential heating and cooling systems</li>
+                        <li>Commercial and industrial installations</li>
+                        <li>Mini-split and multi-zone systems</li>
+                        <li>Ductwork design and installation</li>
+                        <li>System sizing and load calculations</li>
+                    </ul>
+                    <p>We use only quality equipment and follow all codes and best practices. Your new system will operate at peak efficiency for years to come.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>System Upgrades & Retrofits</h3>
+                <p>Modernize your HVAC system with custom upgrades. We'll help you select the right equipment to improve efficiency and significantly reduce operating costs while enhancing comfort.</p>
+                <button class="btn-small" onclick="toggleDetails(this)">Learn More →</button>
+                <div class="details-toggle">
+                    <p><strong>System Upgrade Process:</strong></p>
+                    <p>We will conduct a thorough inspection of your current HVAC system to identify areas that are inefficient, broken, or not up to code. Based on our findings, we'll discuss potential upgrades and costs with you.</p>
+                    <p>Every retrofit project looks different, so we'll develop a customized plan that addresses your specific needs and goals. During this step, we'll also help you select appropriate equipment to incorporate into the upgraded system.</p>
+                    <p>Based on what your system needs, we will replace or add specific components designed to improve your HVAC. This may include furnaces, air conditioners, heat pumps, thermostats, controls, ductwork, and more.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚨</div>
+                <h3>Emergency Replacements</h3>
+                <p>When your system fails, we're there to get you back up and running quickly. 24/7 emergency service to keep your facility operational and your customers comfortable.</p>
+                <button class="btn-small" onclick="toggleDetails(this)">Learn More →</button>
+                <div class="details-toggle">
+                    <p><strong>Emergency Response:</strong></p>
+                    <p>We can get your unit up and running swiftly, allowing your facility to remain operational during the project and keep employees productive.</p>
+                    <p>Our approach allows for equipment to remain cool and operational, protects perishable goods, and keeps your customers comfortable while doing business.</p>
+                    <p>Don't let an HVAC failure disrupt your operations. Call us 24/7 for emergency service, and we'll prioritize getting your system restored immediately.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🛠️</div>
+                <h3>Design & Build Services</h3>
+                <p>Complete HVAC design and installation for new construction projects. We coordinate the entire mechanical scope with transparent upfront cost estimates and timely completion.</p>
+                <button class="btn-small" onclick="toggleDetails(this)">Learn More →</button>
+                <div class="details-toggle">
+                    <p><strong>Design & Build Expertise:</strong></p>
+                    <p>We design, budget and coordinate the complete mechanical scope with upfront cost, long term cost, and serviceability in mind. From small to large, simple to complex, our designer listens and responds to any project with best-value solutions.</p>
+                    <p>Our design-build projects include shopping centers, banks, religious buildings, commercial buildings, modular structures, medical clinics, assisted living, and more.</p>
+                    <p>We have the expertise to design your project and then build it out to completion. Let us handle the entire HVAC scope for your new construction.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🌡️</div>
+                <h3>Maintenance & Repair</h3>
+                <p>Regular preventative maintenance keeps systems running smoothly. Our expert technicians diagnose and repair issues quickly to minimize downtime and extend system lifespan.</p>
+                <button class="btn-small" onclick="toggleDetails(this)">Learn More →</button>
+                <div class="details-toggle">
+                    <p><strong>Keep Your System Running Smoothly:</strong></p>
+                    <p>Regular maintenance is the key to avoiding expensive emergency repairs. We offer comprehensive maintenance packages including:</p>
+                    <ul style="margin: 1rem 0 1rem 1.5rem; color: #666;">
+                        <li>Seasonal tune-ups (spring & fall)</li>
+                        <li>Filter replacement and duct cleaning</li>
+                        <li>System diagnostics and testing</li>
+                        <li>Component inspection and repair</li>
+                        <li>Priority service scheduling</li>
+                    </ul>
+                    <p>When repairs are needed, our technicians quickly diagnose the problem and provide efficient solutions to get you back to comfort fast.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3>System Assessment & Planning</h3>
+                <p>Thorough inspections identify inefficiencies and potential problems before they become costly issues. We develop customized improvement plans for your specific needs and budget.</p>
+                <button class="btn-small" onclick="toggleDetails(this)">Learn More →</button>
+                <div class="details-toggle">
+                    <p><strong>Comprehensive System Assessment:</strong></p>
+                    <p>Not sure if your HVAC system is operating at peak efficiency? We'll conduct a thorough evaluation including:</p>
+                    <ul style="margin: 1rem 0 1rem 1.5rem; color: #666;">
+                        <li>Complete system inspection</li>
+                        <li>Efficiency testing and analysis</li>
+                        <li>Energy consumption review</li>
+                        <li>Problem identification and diagnosis</li>
+                        <li>Customized improvement recommendations</li>
+                        <li>Cost-benefit analysis</li>
+                    </ul>
+                    <p>We'll provide a detailed report with actionable recommendations to improve comfort, reduce costs, and prevent future problems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section style="background: linear-gradient(135deg, #f8f9fa 0%, white 100%); padding: 5rem 2rem;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">Why Choose Rooftop HVAC?</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <div style="padding: 2rem; background: white; border-radius: 16px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border: 2px solid var(--primary);">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">⚙️</div>
+                    <h3 style="color: var(--primary); margin-bottom: 0.8rem; font-size: 1.2rem;">Expert Technicians</h3>
+                    <p style="color: #666;">Fully certified and experienced HVAC professionals with extensive training on all major brands and systems.</p>
+                </div>
+                <div style="padding: 2rem; background: white; border-radius: 16px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border: 2px solid var(--primary);">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">💰</div>
+                    <h3 style="color: var(--primary); margin-bottom: 0.8rem; font-size: 1.2rem;">Transparent Pricing</h3>
+                    <p style="color: #666;">Upfront quotes with no hidden fees. We believe in honest, competitive pricing and excellent value for every project.</p>
+                </div>
+                <div style="padding: 2rem; background: white; border-radius: 16px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border: 2px solid var(--primary);">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">⚡</div>
+                    <h3 style="color: var(--primary); margin-bottom: 0.8rem; font-size: 1.2rem;">Fast Response Time</h3>
+                    <p style="color: #666;">Emergency calls handled within hours. We understand that HVAC issues can't wait, so we prioritize rapid response.</p>
+                </div>
+                <div style="padding: 2rem; background: white; border-radius: 16px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border: 2px solid var(--primary);">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">✓</div>
+                    <h3 style="color: var(--primary); margin-bottom: 0.8rem; font-size: 1.2rem;">Guaranteed Results</h3>
+                    <p style="color: #666;">We stand behind our work. Every installation and repair comes with our satisfaction guarantee.</p>
+                </div>
+                <div style="padding: 2rem; background: white; border-radius: 16px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border: 2px solid var(--primary);">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">🎯</div>
+                    <h3 style="color: var(--primary); margin-bottom: 0.8rem; font-size: 1.2rem;">Customized Solutions</h3>
+                    <p style="color: #666;">Every HVAC challenge is unique. We develop customized solutions tailored to your specific needs and budget.</p>
+                </div>
+                <div style="padding: 2rem; background: white; border-radius: 16px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border: 2px solid var(--primary);">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">🌟</div>
+                    <h3 style="color: var(--primary); margin-bottom: 0.8rem; font-size: 1.2rem;">Proven Track Record</h3>
+                    <p style="color: #666;">Hundreds of successful projects in New Jersey. From small homes to large commercial facilities, we deliver results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section style="background: white; padding: 5rem 2rem;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div style="background: linear-gradient(135deg, #f8f9fa 0%, white 100%); padding: 2rem; border-radius: 16px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border: 2px solid var(--primary);">
+                    <div style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--accent);">★★★★★</div>
+                    <p style="color: #666; margin-bottom: 1.5rem; line-height: 1.8;">"Rooftop HVAC responded within hours to our emergency AC failure. Their technician was professional and had us back up and running the same day. Couldn't ask for better service!"</p>
+                    <p style="font-weight: 600; color: var(--primary); margin-bottom: 0.3rem;">Michael Rodriguez</p>
+                    <p style="font-size: 0.9rem; color: #999;">Commercial Facility Manager, Newark NJ</p>
+                </div>
+                <div style="background: linear-gradient(135deg, #f8f9fa 0%, white 100%); padding: 2rem; border-radius: 16px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border: 2px solid var(--primary);">
+                    <div style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--accent);">★★★★★</div>
+                    <p style="color: #666; margin-bottom: 1.5rem; line-height: 1.8;">"We had them design and install a complete HVAC system for our medical office. Their expertise and attention to detail were outstanding. Best decision we made!"</p>
+                    <p style="font-weight: 600; color: var(--primary); margin-bottom: 0.3rem;">Dr. Sarah Chen</p>
+                    <p style="font-size: 0.9rem; color: #999;">Medical Office Owner, Medford NJ</p>
+                </div>
+                <div style="background: linear-gradient(135deg, #f8f9fa 0%, white 100%); padding: 2rem; border-radius: 16px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border: 2px solid var(--primary);">
+                    <div style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--accent);">★★★★★</div>
+                    <p style="color: #666; margin-bottom: 1.5rem; line-height: 1.8;">"Their system upgrade saved us thousands on energy costs. The upfront quote was honest and they delivered exactly what they promised. Highly recommended!"</p>
+                    <p style="font-weight: 600; color: var(--primary); margin-bottom: 0.3rem;">David Thompson</p>
+                    <p style="font-size: 0.9rem; color: #999;">Retail Store Owner, Mount Laurel NJ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section style="background: linear-gradient(135deg, #f8f9fa 0%, white 100%); padding: 5rem 2rem;">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div style="display: grid; gap: 1rem;">
+                <div style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 3px 15px rgba(0,0,0,0.08); border: 2px solid var(--primary);">
+                    <button onclick="toggleFAQ(this)" style="width: 100%; padding: 1.5rem; background: white; border: none; text-align: left; cursor: pointer; font-size: 1.1rem; font-weight: 600; color: var(--primary); display: flex; justify-content: space-between; align-items: center; transition: all 0.3s;">
+                        <span>What makes Rooftop HVAC different?</span>
+                        <span style="font-size: 1.5rem;">+</span>
+                    </button>
+                    <div class="faq-answer" style="display: none; padding: 0 1.5rem; background: #f8f9fa; border-top: 1px solid #e0e0e0;">
+                        <p style="padding: 1.5rem 0; color: #666;">We combine expert knowledge with transparent pricing and genuine customer care. Our technicians are certified, our work is guaranteed, and we treat your facility like it's our own.</p>
+                    </div>
+                </div>
+
+                <div style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 3px 15px rgba(0,0,0,0.08); border: 2px solid var(--primary);">
+                    <button onclick="toggleFAQ(this)" style="width: 100%; padding: 1.5rem; background: white; border: none; text-align: left; cursor: pointer; font-size: 1.1rem; font-weight: 600; color: var(--primary); display: flex; justify-content: space-between; align-items: center; transition: all 0.3s;">
+                        <span>What is your response time for emergencies?</span>
+                        <span style="font-size: 1.5rem;">+</span>
+                    </button>
+                    <div class="faq-answer" style="display: none; padding: 0 1.5rem; background: #f8f9fa; border-top: 1px solid #e0e0e0;">
+                        <p style="padding: 1.5rem 0; color: #666;">We offer 24/7 emergency service with typical response times within 1-2 hours. Our emergency line is always staffed, and we prioritize urgent calls to minimize your downtime.</p>
+                    </div>
+                </div>
+
+                <div style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 3px 15px rgba(0,0,0,0.08); border: 2px solid var(--primary);">
+                    <button onclick="toggleFAQ(this)" style="width: 100%; padding: 1.5rem; background: white; border: none; text-align: left; cursor: pointer; font-size: 1.1rem; font-weight: 600; color: var(--primary); display: flex; justify-content: space-between; align-items: center; transition: all 0.3s;">
+                        <span>How much does a new system installation cost?</span>
+                        <span style="font-size: 1.5rem;">+</span>
+                    </button>
+                    <div class="faq-answer" style="display: none; padding: 0 1.5rem; background: #f8f9fa; border-top: 1px solid #e0e0e0;">
+                        <p style="padding: 1.5rem 0; color: #666;">Costs vary based on your system size, type, and specific needs. We provide free consultations and detailed quotes with no obligation. Most installations range from $3,000-$8,000+ depending on complexity.</p>
+                    </div>
+                </div>
+
+                <div style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 3px 15px rgba(0,0,0,0.08); border: 2px solid var(--primary);">
+                    <button onclick="toggleFAQ(this)" style="width: 100%; padding: 1.5rem; background: white; border: none; text-align: left; cursor: pointer; font-size: 1.1rem; font-weight: 600; color: var(--primary); display: flex; justify-content: space-between; align-items: center; transition: all 0.3s;">
+                        <span>Do you offer financing options?</span>
+                        <span style="font-size: 1.5rem;">+</span>
+                    </button>
+                    <div class="faq-answer" style="display: none; padding: 0 1.5rem; background: #f8f9fa; border-top: 1px solid #e0e0e0;">
+                        <p style="padding: 1.5rem 0; color: #666;">Yes! We work with several financing partners to help make your HVAC investment affordable. Ask about our flexible payment plans and special promotions during your consultation.</p>
+                    </div>
+                </div>
+
+                <div style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 3px 15px rgba(0,0,0,0.08); border: 2px solid var(--primary);">
+                    <button onclick="toggleFAQ(this)" style="width: 100%; padding: 1.5rem; background: white; border: none; text-align: left; cursor: pointer; font-size: 1.1rem; font-weight: 600; color: var(--primary); display: flex; justify-content: space-between; align-items: center; transition: all 0.3s;">
+                        <span>How often should I have my system serviced?</span>
+                        <span style="font-size: 1.5rem;">+</span>
+                    </button>
+                    <div class="faq-answer" style="display: none; padding: 0 1.5rem; background: #f8f9fa; border-top: 1px solid #e0e0e0;">
+                        <p style="padding: 1.5rem 0; color: #666;">We recommend seasonal tune-ups (spring for AC, fall for heating) plus an annual comprehensive inspection. Regular maintenance prevents 85% of HVAC breakdowns and extends system life.</p>
+                    </div>
+                </div>
+
+                <div style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 3px 15px rgba(0,0,0,0.08); border: 2px solid var(--primary);">
+                    <button onclick="toggleFAQ(this)" style="width: 100%; padding: 1.5rem; background: white; border: none; text-align: left; cursor: pointer; font-size: 1.1rem; font-weight: 600; color: var(--primary); display: flex; justify-content: space-between; align-items: center; transition: all 0.3s;">
+                        <span>Are you licensed and insured?</span>
+                        <span style="font-size: 1.5rem;">+</span>
+                    </button>
+                    <div class="faq-answer" style="display: none; padding: 0 1.5rem; background: #f8f9fa; border-top: 1px solid #e0e0e0;">
+                        <p style="padding: 1.5rem 0; color: #666;">Absolutely. We are fully licensed, insured, and our technicians are certified by NATE. Your protection and peace of mind are our top priorities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="portfolio" id="portfolio">
+        <h2 class="section-title">Recent Projects</h2>
+        <div class="portfolio-grid" id="portfolioGrid">
+            <!-- Portfolio items will be loaded here -->
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="blog.html" class="btn-primary" style="display: inline-block;">View All Projects →</a>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <div class="info-item">
+                    <strong>Phone</strong>
+                    <p><a href="tel:+16097148280" style="color: inherit; text-decoration: none;">(609) 714-8280</a></p>
+                </div>
+                <div class="info-item">
+                    <strong>Email</strong>
+                    <p><a href="mailto:wpalombi@rooftophvac.com" style="color: inherit; text-decoration: none;">wpalombi@rooftophvac.com</a></p>
+                </div>
+                <div class="info-item">
+                    <strong>Address</strong>
+                    <p>PO Box 153<br>Medford, NJ 08055</p>
+                </div>
+                <div class="info-item">
+                    <strong>Hours</strong>
+                    <p>Monday - Friday<br>9:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="contactName">Full Name *</label>
+                    <input type="text" id="contactName" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactEmail">Email Address *</label>
+                    <input type="email" id="contactEmail" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactPhone">Phone Number</label>
+                    <input type="tel" id="contactPhone" placeholder="(XXX) XXX-XXXX">
+                </div>
+                <div class="form-group">
+                    <label for="contactMessage">Project Details *</label>
+                    <textarea id="contactMessage" placeholder="Tell us about your project..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Upload Photos (Optional)</label>
+                    <div class="upload-area" onclick="document.getElementById('contactPhotos').click()">
+                        <div class="upload-icon">📎</div>
+                        <div class="upload-text">Click to upload or drag & drop</div>
+                        <div class="upload-subtext">JPG, PNG, GIF — Multiple files supported</div>
+                    </div>
+                    <input type="file" id="contactPhotos" multiple accept="image/*" style="display: none;">
+                    <label for="contactPhotos" class="file-upload-button">
+                        📁 Choose Files
+                    </label>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem;">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <img id="modalImage" class="modal-image" src="" alt="">
+            <div class="modal-text">
+                <h2 id="modalTitle"></h2>
+                <p id="modalDesc"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT SUCCESS MODAL -->
+    <div class="contact-modal" id="contactModal">
+        <div class="contact-modal-content">
+            <div class="contact-modal-icon">✅</div>
+            <h2>Thank You!</h2>
+            <p id="contactModalMessage">Thank you for reaching out! Someone from our team will get back to you within 24 hours.</p>
+            <button class="contact-modal-button" onclick="closeContactModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Rooftop HVAC. All rights reserved.</p>
+        <p>Professional HVAC Services | Medford, NJ</p>
+        <p style="margin-top: 1.5rem; font-size: 0.95rem;">Follow us on Instagram: <strong><a href="https://instagram.com/Rooftop_Hvac" target="_blank" style="color: white; text-decoration: none; border-bottom: 1px solid white;">@Rooftop_Hvac</a></strong></p>
+    </footer>
+
+    <script src="blog-data.js"></script>
+    <script>
+        function openModal(item) {
+            window.location.href = 'blog.html#' + item.id;
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        function showContactModal(message) {
+            document.getElementById('contactModalMessage').textContent = message;
+            document.getElementById('contactModal').classList.add('active');
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModal').classList.remove('active');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        function loadPortfolio() {
+            const grid = document.getElementById('portfolioGrid');
+            // Show only the first 6 projects
+            const recentPosts = blogPosts.slice(0, 6);
+
+            recentPosts.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'portfolio-item';
+                div.onclick = () => { window.location.href = 'blog.html'; };
+                div.innerHTML = `
+                    <img src="${item.thumbnail}" alt="${item.title}" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-text">
+                            <h3>${item.title}</h3>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(div);
+            });
+        }
+
+        function handleSubmit(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const phone = document.getElementById('contactPhone').value.trim();
+            const message = document.getElementById('contactMessage').value.trim();
+            const photoInput = document.getElementById('contactPhotos');
+            const photoCount = photoInput.files.length;
+
+            if (!name || !email || !message) {
+                alert('❌ Please fill in all required fields (Name, Email, Message)');
+                return;
+            }
+
+            const formData = { name, email, phone, message, photoCount };
+
+            // Try to send to backend
+            fetch('http://localhost:3000/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showContactModal('Thank you for reaching out! Someone from our team will get back to you within 24 hours.');
+                    document.querySelector('.contact-form').reset();
+                } else {
+                    showContactModal('Error: ' + (data.error || 'Failed to send message'));
+                }
+            })
+            .catch(error => {
+                // Fallback: save to localStorage if server is down
+                console.error('Server offline, saving locally:', error);
+                let submissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
+                submissions.push({
+                    ...formData,
+                    timestamp: new Date().toISOString()
+                });
+                localStorage.setItem('contactSubmissions', JSON.stringify(submissions));
+
+                showContactModal('Thank you for reaching out! Someone from our team will get back to you within 24 hours.');
+                document.querySelector('.contact-form').reset();
+            });
+        }
+
+        function toggleDetails(button) {
+            const details = button.nextElementSibling;
+            details.classList.toggle('show');
+            button.textContent = details.classList.contains('show') ? 'Hide Details ↑' : 'Learn More →';
+        }
+
+        function toggleFAQ(button) {
+            const answer = button.nextElementSibling;
+            const span = button.querySelector('span:last-child');
+
+            // Close other open FAQs
+            document.querySelectorAll('.faq-answer').forEach(a => {
+                if (a !== answer) a.style.display = 'none';
+            });
+            document.querySelectorAll('button[onclick*="toggleFAQ"]').forEach(b => {
+                if (b !== button) b.querySelector('span:last-child').textContent = '+';
+            });
+
+            // Toggle current
+            if (answer.style.display === 'none' || !answer.style.display) {
+                answer.style.display = 'block';
+                span.textContent = '−';
+            } else {
+                answer.style.display = 'none';
+                span.textContent = '+';
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', loadPortfolio);
+    </script>
+</body>
+</html>
